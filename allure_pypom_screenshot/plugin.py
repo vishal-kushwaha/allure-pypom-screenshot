@@ -10,7 +10,7 @@ from pypom import hookimpl
 def pypom_after_wait_for_page_to_load(page):
     ''' capture the screenshot of a page once it is loaded '''
     file_name = page.__class__.__name__ + '.png'
-    page.selenium.get_screenshot_as_file(file_name)
+    page.driver.get_screenshot_as_file(file_name)
     allure.attach.file(file_name, attachment_type=allure.attachment_type.PNG)
     os.remove(file_name)
 
